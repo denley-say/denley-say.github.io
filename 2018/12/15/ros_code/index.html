@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>机器人源码分析 | 晓月刀的个人空间</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="自从9月20号开始进入机器人领域，一路的摸爬滚打，一路的酸甜苦辣，这里主要说说源码分析方面的感受吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器人源码分析">
+<meta property="og:url" content="http://www.justtodo.com/2018/12/15/ros_code/index.html">
+<meta property="og:site_name" content="晓月刀的个人空间">
+<meta property="og:description" content="自从9月20号开始进入机器人领域，一路的摸爬滚打，一路的酸甜苦辣，这里主要说说源码分析方面的感受吧。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-12-15T08:29:00.000Z">
+<meta property="article:modified_time" content="2022-03-24T03:04:12.630Z">
+<meta property="article:author" content="Denley Hsiao">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="晓月刀的个人空间" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">晓月刀的个人空间</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">多动手、勤思考</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.justtodo.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-ros_code" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/12/15/ros_code/" class="article-date">
+  <time class="dt-published" datetime="2018-12-15T08:29:00.000Z" itemprop="datePublished">2018-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BA%90%E7%A0%81/">源码</a>►<a class="article-category-link" href="/categories/%E6%BA%90%E7%A0%81/ROS/">ROS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      机器人源码分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>自从9月20号开始进入机器人领域，一路的摸爬滚打，一路的酸甜苦辣，这里主要说说源码分析方面的感受吧。</p>
+<span id="more"></span>
+
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><blockquote>
+<p>先让源码先跑起来</p>
+</blockquote>
+<p>真正开始源码分析，已经是11月后的事情了，因为之前源码还没拿到手，只有部署用的安装包，<br>在此期间，通过<font color="red">搭建运行环境，查看运行效果</font>，把源码当作黑盒来理解，对源码的功能会有不错的认识。</p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>源码拿到手后，总是有种跃跃欲试的冲动，但从哪入手还是有点讲究的；<br>简单的看了下各个模块的说明，知道各自负责的功能后，我就<font color="red">从自己擅长的部分开始</font>—串口通讯，<br>其实选这个模块作为开始，还有一个原因就是有个相关问题需要解决 — 后面发现其实在此模块的上层进行更合理，<font color="red">带着问题去学习</font>比无头苍蝇要好</p>
+<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>分析源码，尤其要带着问题去修改，难免就要对其进行现有结构进行重构，以利于理解与解决问题。<br>对我而言，进入陌生的机器人领域，拿着一堆杂乱的代码，或者说是与自己风格格格不入的代码，难怪圈内人总是会有自己重写的冲动；<br>但现在没办法，入门者只能先学习才能继续啊；<br>好在ROS自带单元测试模块，简单配置后，通过<font color="red">测试先行</font>的方法就可以放心的进行重构了。</p>
+<h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><p>啃完自己擅长或简单的模块，就到了啃硬骨头的时候了 — 系统的核心模块；</p>
+<ul>
+<li>同样，先从简单的重构开始：把800多行的main函数分割成N个小函数，此时还不要通过新建文件来分类，这个动作后续进行比较好，因为新建文件会涉及到功能划分、文件组织、编译设置等等，先<font color="red">专注于化整为零</font>吧；</li>
+<li>然后就可以新建文件<font color="red">存放工具类的函数</font>了，因为它常用，又信赖性比较小；</li>
+<li>最后就是<font color="red">按具体的功能新建文件</font>了，此时步伐要小，每个功能的依赖尽量控制到最小，依赖比较多的都留在主文件（main函数所在文件）中进行调用。</li>
+</ul>
+<h2 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h2><p>这是目前我所在的状态，核心模块中大部分已经整理完成，但有几处核心算法无法理解；目前能想到的方法是：</p>
+<ul>
+<li><font color="red">建立调试环境</font>，逐步跟踪理解 — 我始终认为：理解自己写的代码可能单元测试就够了，但了解别人的思路，调试还是有它存在的价值；</li>
+<li>使用<font color="red">ROS_DEBUG输出调试用的日志</font>，而不是printf；</li>
+</ul>
+<p>以上，就是我进入机器人世界进行源码分析的过程，其中当然有些是无心插柳的原因：</p>
+<ul>
+<li>因为前期没有拿到源码，只能从运行开始；</li>
+<li>因为ROS自带单元测试，很容易就可以测试先行；</li>
+<li>因为涉及到串口通信，恰好可以从自己擅长的模块入手；</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.justtodo.com/2018/12/15/ros_code/" data-id="cl14ev6db0000fuor2bdkeopz" data-title="机器人源码分析" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/10/whose_cat/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">谁是养猫人</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/misc/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%BA%90%E7%A0%81/">源码</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%BA%90%E7%A0%81/ROS/">ROS</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%80%BB%E8%BE%91/">逻辑</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/12/">十二月 2007</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/15/ros_code/">机器人源码分析</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/10/whose_cat/">谁是养猫人</a>
+          </li>
+        
+          <li>
+            <a href="/2007/12/23/welcome-to-my-blog/">欢迎辞</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Denley Hsiao<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
