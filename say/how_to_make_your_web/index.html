@@ -6,15 +6,15 @@
   
   <title>如何快速搭建你的第一个网站 | 晓月刀的个人空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="有人说：把自己当成一个公司去经营，如何展示公司的产品呢？有人说：持续输出倒逼输入  在github上新建项目&lt;user_name&gt;.github.io; aliyun域名解析中增加一条CNAME指向&lt;user_name&gt;.github.io; 设置项目&lt;user_name&gt;.github.io为public权限，github page使用gh-pages分支，C">
+  <meta name="description" content="有人说：把自己当成一个公司去经营，如何展示公司的产品呢？有人说：持续输出倒逼输入  在github上新建&lt;user_name&gt;.github.io项目: public权限&#x2F;.gitignore选择node; aliyun域名解析中增加一条CNAME指向&lt;user_name&gt;.github.io; 设置项目&lt;user_name&gt;.github.io为，g">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何快速搭建你的第一个网站">
 <meta property="og:url" content="http://www.justtodo.com/say/how_to_make_your_web/index.html">
 <meta property="og:site_name" content="晓月刀的个人空间">
-<meta property="og:description" content="有人说：把自己当成一个公司去经营，如何展示公司的产品呢？有人说：持续输出倒逼输入  在github上新建项目&lt;user_name&gt;.github.io; aliyun域名解析中增加一条CNAME指向&lt;user_name&gt;.github.io; 设置项目&lt;user_name&gt;.github.io为public权限，github page使用gh-pages分支，C">
+<meta property="og:description" content="有人说：把自己当成一个公司去经营，如何展示公司的产品呢？有人说：持续输出倒逼输入  在github上新建&lt;user_name&gt;.github.io项目: public权限&#x2F;.gitignore选择node; aliyun域名解析中增加一条CNAME指向&lt;user_name&gt;.github.io; 设置项目&lt;user_name&gt;.github.io为，g">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-24T06:51:20.000Z">
-<meta property="article:modified_time" content="2022-03-24T07:59:21.885Z">
+<meta property="article:modified_time" content="2022-03-24T13:53:24.833Z">
 <meta property="article:author" content="Denley Hsiao">
 <meta name="twitter:card" content="summary">
   
@@ -105,10 +105,10 @@
       
         <p>有人说：把自己当成一个公司去经营，如何展示公司的产品呢？<br>有人说：持续输出倒逼输入</p>
 <ol>
-<li>在github上新建项目<code>&lt;user_name&gt;.github.io</code>;</li>
+<li>在github上新建<code>&lt;user_name&gt;.github.io</code>项目: public权限&#x2F;.gitignore选择node;</li>
 <li>aliyun域名解析中增加一条CNAME指向<code>&lt;user_name&gt;.github.io</code>;</li>
-<li>设置项目<code>&lt;user_name&gt;.github.io</code>为public权限，github page使用gh-pages分支，CNAME指向上一步中设置的域名;</li>
-<li>构建<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:&lt;user_name&gt;/&lt;user_name&gt;.github.io.git</span><br><span class="line"><span class="built_in">cd</span> &lt;user_name&gt;.github.io</span><br><span class="line">hexo new &lt;web_name&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;web_name&gt;</span><br><span class="line">hexo init</span><br><span class="line">vi &lt;web_name&gt;/source/_posts/welcome_to_my_web.md</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure></li>
+<li>设置项目<code>&lt;user_name&gt;.github.io</code>为，github page使用gh-pages分支，CNAME指向上一步中设置的域名;</li>
+<li>构建<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:&lt;user_name&gt;/&lt;user_name&gt;.github.io</span><br><span class="line"><span class="built_in">cd</span> &lt;user_name&gt;.github.io</span><br><span class="line">hexo init &lt;web_name&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;web_name&gt;</span><br><span class="line">vi &lt;web_name&gt;/source/_posts/welcome_to_my_web.md</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure></li>
 <li>部署：提交后的代码会在action下自动更新到gh-pages分支</li>
 <li>测试：在浏览器中输入域名</li>
 </ol>
@@ -122,7 +122,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.justtodo.com/say/how_to_make_your_web/" data-id="cl14perys0001d4or4nnt1lzo" data-title="如何快速搭建你的第一个网站" class="article-share-link">分享</a>
+      <a data-url="http://www.justtodo.com/say/how_to_make_your_web/" data-id="cl152240b0001daor5y3p4orr" data-title="如何快速搭建你的第一个网站" class="article-share-link">分享</a>
       
       
       
