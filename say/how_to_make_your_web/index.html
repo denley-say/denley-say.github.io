@@ -6,15 +6,15 @@
   
   <title>如何快速搭建你的第一个网站 | 晓月刀的个人空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="有人说：把自己当成一个公司去经营，如何展示公司的产品呢？有人说：持续输出倒逼输入  域名申请：最后设置好域名解析CNAME指向”xxx.github.io” 安装环境：node,npm,hexo 生成网站12345hexo new &lt;web_name&gt;cd &lt;web_name&gt;hexo inithexo ghexo s 完成部署：提交到github上的public库，通过a">
+  <meta name="description" content="有人说：把自己当成一个公司去经营，如何展示公司的产品呢？有人说：持续输出倒逼输入  在github上新建项目&lt;user_name&gt;.github.io，要求是public权限，github page使用gh-pages分支; 申请域名后设置域名解析中的CNAME指向&lt;user_name&gt;.github.io; 使用hexo生成网站12345678git clone git@">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何快速搭建你的第一个网站">
 <meta property="og:url" content="http://www.justtodo.com/say/how_to_make_your_web/index.html">
 <meta property="og:site_name" content="晓月刀的个人空间">
-<meta property="og:description" content="有人说：把自己当成一个公司去经营，如何展示公司的产品呢？有人说：持续输出倒逼输入  域名申请：最后设置好域名解析CNAME指向”xxx.github.io” 安装环境：node,npm,hexo 生成网站12345hexo new &lt;web_name&gt;cd &lt;web_name&gt;hexo inithexo ghexo s 完成部署：提交到github上的public库，通过a">
+<meta property="og:description" content="有人说：把自己当成一个公司去经营，如何展示公司的产品呢？有人说：持续输出倒逼输入  在github上新建项目&lt;user_name&gt;.github.io，要求是public权限，github page使用gh-pages分支; 申请域名后设置域名解析中的CNAME指向&lt;user_name&gt;.github.io; 使用hexo生成网站12345678git clone git@">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-24T06:51:20.000Z">
-<meta property="article:modified_time" content="2022-03-24T07:20:06.700Z">
+<meta property="article:modified_time" content="2022-03-24T07:50:22.824Z">
 <meta property="article:author" content="Denley Hsiao">
 <meta name="twitter:card" content="summary">
   
@@ -105,16 +105,22 @@
       
         <p>有人说：把自己当成一个公司去经营，如何展示公司的产品呢？<br>有人说：持续输出倒逼输入</p>
 <ol>
-<li>域名申请：最后设置好域名解析CNAME指向”xxx.github.io”</li>
-<li>安装环境：node,npm,hexo</li>
-<li>生成网站<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;web_name&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;web_name&gt;</span><br><span class="line">hexo init</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></li>
-<li>完成部署：提交到github上的public库，通过action自动更新到gh-pages分支，设置好github page使用gh-pages分支，使用CNAME文件与域名建立关联</li>
+<li>在github上新建项目<code>&lt;user_name&gt;.github.io</code>，要求是public权限，github page使用gh-pages分支;</li>
+<li>申请域名后设置域名解析中的CNAME指向<code>&lt;user_name&gt;.github.io</code>;</li>
+<li>使用hexo生成网站<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:&lt;user_name&gt;/&lt;user_name&gt;.github.io.git</span><br><span class="line"><span class="built_in">cd</span> &lt;user_name&gt;.github.io</span><br><span class="line">hexo new &lt;web_name&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;web_name&gt;</span><br><span class="line">hexo init</span><br><span class="line">vi CNAME</span><br><span class="line">vi &lt;web_name&gt;/source/_posts/welcome_to_my_web.md</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure></li>
+<li>完成部署：提交后的代码会在action下自动更新到gh-pages分支</li>
 </ol>
+<p><em>注</em></p>
+<ul>
+<li>域名解析后需要些时间访问才能生效;</li>
+<li>提交到github后也需要些时间才能生效：自动执行action需要时间;</li>
+<li>作为page的github项目必须是public.</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.justtodo.com/say/how_to_make_your_web/" data-id="cl14o0bwt0001dgom0x0abejj" data-title="如何快速搭建你的第一个网站" class="article-share-link">分享</a>
+      <a data-url="http://www.justtodo.com/say/how_to_make_your_web/" data-id="cl14p39c80001ejojd2o06d0s" data-title="如何快速搭建你的第一个网站" class="article-share-link">分享</a>
       
       
       
