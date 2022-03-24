@@ -105,10 +105,12 @@
       
         <p>有人说：把自己当成一个公司去经营，如何展示公司的产品呢？<br>有人说：持续输出倒逼输入</p>
 <ol>
-<li>在github上新建项目<code>&lt;user_name&gt;.github.io</code>，要求是public权限，github page使用gh-pages分支;</li>
-<li>申请域名后设置域名解析中的CNAME指向<code>&lt;user_name&gt;.github.io</code>;</li>
-<li>使用hexo生成网站<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:&lt;user_name&gt;/&lt;user_name&gt;.github.io.git</span><br><span class="line"><span class="built_in">cd</span> &lt;user_name&gt;.github.io</span><br><span class="line">hexo new &lt;web_name&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;web_name&gt;</span><br><span class="line">hexo init</span><br><span class="line">vi CNAME</span><br><span class="line">vi &lt;web_name&gt;/source/_posts/welcome_to_my_web.md</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure></li>
-<li>完成部署：提交后的代码会在action下自动更新到gh-pages分支</li>
+<li>在github上新建项目<code>&lt;user_name&gt;.github.io</code>;</li>
+<li>aliyun域名解析中增加一条CNAME指向<code>&lt;user_name&gt;.github.io</code>;</li>
+<li>设置项目<code>&lt;user_name&gt;.github.io</code>为public权限，github page使用gh-pages分支，CNAME指向上一步中设置的域名;</li>
+<li>构建<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:&lt;user_name&gt;/&lt;user_name&gt;.github.io.git</span><br><span class="line"><span class="built_in">cd</span> &lt;user_name&gt;.github.io</span><br><span class="line">hexo new &lt;web_name&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;web_name&gt;</span><br><span class="line">hexo init</span><br><span class="line">vi CNAME</span><br><span class="line">vi &lt;web_name&gt;/source/_posts/welcome_to_my_web.md</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure></li>
+<li>部署：提交后的代码会在action下自动更新到gh-pages分支</li>
+<li>测试：在浏览器中输入域名</li>
 </ol>
 <p><em>注</em></p>
 <ul>
@@ -120,7 +122,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.justtodo.com/say/how_to_make_your_web/" data-id="cl14p39c80001ejojd2o06d0s" data-title="如何快速搭建你的第一个网站" class="article-share-link">分享</a>
+      <a data-url="http://www.justtodo.com/say/how_to_make_your_web/" data-id="cl14peev80001ecoreo1i51zk" data-title="如何快速搭建你的第一个网站" class="article-share-link">分享</a>
       
       
       
@@ -167,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.justtodo.com/say/ros_code/" data-id="cl14p39cc0003ejojcw2647jp" data-title="ROS入门总结" class="article-share-link">分享</a>
+      <a data-url="http://www.justtodo.com/say/ros_code/" data-id="cl14peevc0003ecor0rhs8r50" data-title="ROS入门总结" class="article-share-link">分享</a>
       
       
       
@@ -214,7 +216,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.justtodo.com/say/whose_cat/" data-id="cl14p39ce0004ejojgltlg6fo" data-title="谁是养猫人" class="article-share-link">分享</a>
+      <a data-url="http://www.justtodo.com/say/whose_cat/" data-id="cl14peeve0004ecor896l8b5s" data-title="谁是养猫人" class="article-share-link">分享</a>
       
       
       
@@ -263,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.justtodo.com/welcome-to-my-space/" data-id="cl14p39c20000ejoj7pbz62aj" data-title="欢迎" class="article-share-link">分享</a>
+      <a data-url="http://www.justtodo.com/welcome-to-my-space/" data-id="cl14peev10000ecor5yq6h56w" data-title="欢迎" class="article-share-link">分享</a>
       
       
       
